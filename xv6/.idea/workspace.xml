@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8fd3f3a7-69dd-4097-b755-8e41c6ad7361" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/xv6" />
+  </component>
+  <component name="ProjectId" id="27OkbnZFBfxG8sFyc0ZdPanqUqe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="xv6" type="CLion_Remote" remoteCommand="localhost:28139" symbolFile="$PROJECT_DIR$/kernel" sysroot="$PROJECT_DIR$">
+      <pathMapping remote=":/home/csgrads/sramk002/cs153/xv6" local="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8fd3f3a7-69dd-4097-b755-8e41c6ad7361" name="Default Changelist" comment="" />
+      <created>1649198594151</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649198594151</updated>
+      <workItem from="1649198598546" duration="3657000" />
+      <workItem from="1650240540983" duration="1815000" />
+      <workItem from="1650243061732" duration="642000" />
+      <workItem from="1650243722043" duration="7185000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="112" key="#Deployment" timestamp="1650240889955">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="112" key="#Deployment/0.0.1440.900@0.0.1440.900" timestamp="1650240889955" />
+    <state x="532" y="63" key="#Deployment/0.25.1440.814@0.25.1440.814" timestamp="1649199784246" />
+    <state x="207" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1650243508946">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="207" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1650243508946" />
+    <state x="328" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.814@0.25.1440.814" timestamp="1649199941206" />
+    <state x="450" y="257" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1650250913638">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="450" y="257" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1650250913638" />
+    <state x="100" y="100" width="1240" height="700" key="DirDiffDialog" timestamp="1650241555679">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="DirDiffDialog/0.0.1440.900@0.0.1440.900" timestamp="1650241555679" />
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom" timestamp="1650252349721">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1650252349721" />
+    <state width="1398" height="303" key="GridCell.Tab.0.center" timestamp="1650252349720">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1650252349720" />
+    <state width="1398" height="303" key="GridCell.Tab.0.left" timestamp="1650252349719">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1650252349719" />
+    <state width="1398" height="303" key="GridCell.Tab.0.right" timestamp="1650252349720">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1650252349720" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1650252349724">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1650252349724" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center" timestamp="1650252349723">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1650252349723" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left" timestamp="1650252349722">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1650252349722" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right" timestamp="1650252349724">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1650252349724" />
+    <state x="235" y="159" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1650241917347">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="235" y="159" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1650241917347" />
+    <state x="386" y="85" width="667" height="729" key="find.popup" timestamp="1650240956051">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="386" y="85" width="667" height="729" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1650240956051" />
+    <state x="627" y="184" key="ftp.server.browser" timestamp="1649200342861">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="627" y="184" key="ftp.server.browser/0.0.1440.900@0.0.1440.900" timestamp="1649200342861" />
+  </component>
+</project>
