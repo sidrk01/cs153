@@ -287,6 +287,9 @@ wait(int* status)
       if(p->state == ZOMBIE){
         // Found one
         pid = p->pid;
+        if (p->status == 1){
+              *status = p->status;
+        }
         kfree(p->kstack);
         p->kstack = 0;
         freevm(p->pgdir);
@@ -296,9 +299,6 @@ wait(int* status)
         p->killed = 0;
         p->state = UNUSED;
         release(&ptable.lock);
-        if (status != 0){
-            *status = p->status;
-        }
         return pid;
       }
     }
@@ -331,6 +331,9 @@ waitpid(int pid, int* status, int options)
                 if (p->state == ZOMBIE) {
                     // Found one
                     pid = p->pid;
+                    if (p->status == 1){
+                        *status = p->status;
+                    }
                     kfree(p->kstack);
                     p->kstack = 0;
                     freevm(p->pgdir);
@@ -340,9 +343,6 @@ waitpid(int pid, int* status, int options)
                     p->killed = 0;
                     p->state = UNUSED;
                     release(&ptable.lock);
-                    if (status != 0) {
-                        *status = p->status;
-                    }
                     return pid;
                 }
             }

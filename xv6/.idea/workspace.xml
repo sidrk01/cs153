@@ -72,7 +72,7 @@
       <workItem from="1650240540983" duration="1815000" />
       <workItem from="1650243061732" duration="642000" />
       <workItem from="1650243722043" duration="7185000" />
-      <workItem from="1650581381156" duration="13084000" />
+      <workItem from="1650581381156" duration="15041000" />
     </task>
     <servers />
   </component>
@@ -150,5 +150,16 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="627" y="184" key="ftp.server.browser/0.0.1440.900@0.0.1440.900" timestamp="1649200342861" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lab1_test.c</url>
+          <line>45</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
