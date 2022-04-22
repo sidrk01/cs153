@@ -296,7 +296,7 @@ wait(int* status)
         p->killed = 0;
         p->state = UNUSED;
         release(&ptable.lock);
-        if (*status != 0){
+        if (status != 0){
             *status = p->status;
         }
         return pid;
@@ -315,7 +315,7 @@ wait(int* status)
 }
 
 int
-wait(int, pid, int* status, int options)
+waitpid(int pid, int* status, int options)
 {
     struct proc *p;
     int iscurr;
@@ -325,31 +325,31 @@ wait(int, pid, int* status, int options)
     for(;;){
         // Scan through table looking for exited children.
         iscurr = 0;
-        for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-            if(p->pid != pid)
-                continue;
-            havekids = 1;
-            if(p->state == ZOMBIE){
-                // Found one
-                pid = p->pid;
-                kfree(p->kstack);
-                p->kstack = 0;
-                freevm(p->pgdir);
-                p->pid = 0;
-                p->parent = 0;
-                p->name[0] = 0;
-                p->killed = 0;
-                p->state = UNUSED;
-                release(&ptable.lock);
-                if (*status != 0){
-                    *status = p->status;
+        for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+            if (p->pid == pid) {
+                iscurr = 1;
+                if (p->state == ZOMBIE) {
+                    // Found one
+                    pid = p->pid;
+                    kfree(p->kstack);
+                    p->kstack = 0;
+                    freevm(p->pgdir);
+                    p->pid = 0;
+                    p->parent = 0;
+                    p->name[0] = 0;
+                    p->killed = 0;
+                    p->state = UNUSED;
+                    release(&ptable.lock);
+                    if (status != 0) {
+                        *status = p->status;
+                    }
+                    return pid;
                 }
-                return pid;
             }
         }
 
         // No point waiting if we don't have any children.
-        if(!havekids || curproc->killed){
+        if(iscurr || curproc->killed){
             release(&ptable.lock);
             return -1;
         }
