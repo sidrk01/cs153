@@ -22,6 +22,7 @@ sys_exit(void)
   } else {
     exit(status);
   }
+
   return 0;  // not reached
 }
 
