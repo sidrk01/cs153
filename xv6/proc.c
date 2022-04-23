@@ -252,7 +252,6 @@ exit(int status)
   // Parent might be sleeping in wait().
   wakeup1(curproc->parent);
 
-
   // Pass abandoned children to init.
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
     if(p->parent == curproc){

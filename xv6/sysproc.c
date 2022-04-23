@@ -36,7 +36,7 @@ sys_wait(void)
     if(argptr(0, (char**)&status, sizeof(status)) < 0){
         return -1;
     }
-    return wait(value);
+    return wait(status);
 }
 
 int sys_waitpid(void)
