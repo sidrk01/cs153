@@ -16,25 +16,47 @@ sys_fork(void)
 int
 sys_exit(void)
 {
-  int status;
-  if (0 > argint(0, &status)){
-      return -1;
-  } else {
-    exit(status);
-  }
+    int status;
+    //checking conditions int
+    if(0 > argint(0, &status)) {
+        return -1;
+    } else {
+        exit(status);
+    }
+    return 0; // not reached
 
-  return 0;  // not reached
 }
 
 int
 sys_wait(void)
 {
-  return wait(0);
+    int *status;
+
+    //checking conditions int*
+    if(argptr(0, (char**)&status, sizeof(status)) < 0){
+        return -1;
+    }
+    return wait(value);
 }
 
 int sys_waitpid(void)
 {
-    return  waitpid(0, 0, 0);
+    int pid;
+    int *status;
+    int options;
+
+    //checking conditions int, int*, int
+    if(argint(0, &pid) < 0){
+        return -1;
+    }
+
+    if(0 > argptr(1, (char**)&status, sizeof(status))){
+        return -1;
+    }
+    if(argint(2, &options)){
+        return -1;
+    }
+    return waitpid(pid, status, options);
 }
 
 int
