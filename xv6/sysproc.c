@@ -59,6 +59,16 @@ int sys_waitpid(void)
     return waitpid(pid, status, options);
 }
 
+int sys_setprior(void){ //S.R
+    int priorityValue;
+
+    if (argint(0, &priorityValue) < 0){
+        return -1;
+    }
+    return setprior(priorityValue);
+}
+
+
 int
 sys_kill(void)
 {

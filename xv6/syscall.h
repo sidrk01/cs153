@@ -22,3 +22,4 @@
 #define SYS_close  21
 #define SYS_hello  22
 #define SYS_waitpid 23 //waitpid
+#define SYS_setprior 24 //updates priority value

@@ -30,4 +30,6 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
-SYSCALL(hello) //J.H
+SYSCALL(hello) //S.R
+SYSCALL(priority) //S.R
+

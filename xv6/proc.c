@@ -252,6 +252,7 @@ exit(int status)
   // Parent might be sleeping in wait().
   wakeup1(curproc->parent);
 
+
   // Pass abandoned children to init.
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
     if(p->parent == curproc){
@@ -363,6 +364,15 @@ waitpid(int pid, int* status, int options)
     }
 }
 
+int
+setprior(int prior_lvl){
+    struct proc *curproc = myproc();
+
+    curproc->priorityValue = prior_lvl;
+
+    return 0;
+}
+
 
 //PAGEBREAK: 42
 // Per-CPU process scheduler.
@@ -378,30 +388,45 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  
+  int highestpriority = 31; //start with lowest priority value
+
   for(;;){
     // Enable interrupts on this processor.
     sti();
 
-    // Loop over process table looking for process to run.
     acquire(&ptable.lock);
+
+    //loops over process table and assigns the highest priority
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        if (p->priorityValue < highestpriority) {
+            if (p->state == RUNNABLE)
+                highestpriority = p->priorityValue;
+        }
+    }
+
+    //only chooses the runnable process which is ready to execute
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
 
-      // Switch to chosen process.  It is the process's job
-      // to release ptable.lock and then reacquire it
-      // before jumping back to us.
-      c->proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
+    if (p->priorityValue == highestpriority) { //process w/ highest priority
+        // Switch to chosen process.  It is the process's job
+        // to release ptable.lock and then reacquire it
+        // before jumping back to us.
+        c->proc = p;
+        switchuvm(p);
+        p->state = RUNNING;
 
-      swtch(&(c->scheduler), p->context);
-      switchkvm();
+        swtch(&(c->scheduler), p->context);
+        switchkvm();
 
-      // Process is done running for now.
-      // It should have changed its p->state before coming back.
-      c->proc = 0;
+        // Process is done running for now.
+        // It should have changed its p->state before coming back.
+        c->proc = 0;
+    } else {
+        //aging of priority here
+        
+    }
     }
     release(&ptable.lock);
 

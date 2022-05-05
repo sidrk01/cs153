@@ -51,7 +51,7 @@ struct proc {
   char name[16];               // Process name (debugging)
   int status;                  // Saves Exit Status
   int wait_pid;                // Waits for process termination
-
+  int priorityValue;           // Priority of process
 };
 
 // Process memory is laid out contiguously, low addresses first:
