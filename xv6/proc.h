@@ -52,6 +52,8 @@ struct proc {
   int status;                  // Saves Exit Status
   int wait_pid;                // Waits for process termination
   int priorityValue;           // Priority of process
+  int start_time;              // Start Time Ticket
+  int finish_time;             // Wait Time Ticket
 };
 
 // Process memory is laid out contiguously, low addresses first:

@@ -88,6 +88,7 @@ allocproc(void)
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
+  p->priorityValue = 31; //initialization
 
   release(&ptable.lock);
 
@@ -215,6 +216,8 @@ fork(void)
   acquire(&ptable.lock);
 
   np->state = RUNNABLE;
+
+  np->priorityValue = 31; //initialization
 
   release(&ptable.lock);
 
@@ -370,6 +373,7 @@ setprior(int prior_lvl){
 
     curproc->priorityValue = prior_lvl;
 
+    yield(); //transfers control of the scheduler
     return 0;
 }
 
@@ -423,9 +427,12 @@ scheduler(void)
         // Process is done running for now.
         // It should have changed its p->state before coming back.
         c->proc = 0;
+        p->priorityValue += 1;
     } else {
         //aging of priority here
-        
+        if (p->priorityValue > 0){
+            p->priorityValue -= 1;
+        }
     }
     }
     release(&ptable.lock);
