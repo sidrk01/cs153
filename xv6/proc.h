@@ -1,3 +1,5 @@
+#include "time.h"
+
 // Per-CPU state
 struct cpu {
   uchar apicid;                // Local APIC ID
@@ -52,8 +54,10 @@ struct proc {
   int status;                  // Saves Exit Status
   int wait_pid;                // Waits for process termination
   int priorityValue;           // Priority of process
-  int start_time;              // Start Time Ticket
-  int finish_time;             // Wait Time Ticket
+  int start;              // Start Time Ticket
+ // int wait;             // Waiting Time
+  int burst;           // Holds Burst Time Value
+
 };
 
 // Process memory is laid out contiguously, low addresses first:

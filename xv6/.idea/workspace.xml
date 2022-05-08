@@ -11,8 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="8fd3f3a7-69dd-4097-b755-8e41c6ad7361" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/exec.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.h" beforeDir="false" afterPath="$PROJECT_DIR$/user.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usys.S" beforeDir="false" afterPath="$PROJECT_DIR$/usys.S" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +87,8 @@
       <workItem from="1650860158877" duration="901000" />
       <workItem from="1651012704010" duration="223000" />
       <workItem from="1651530717519" duration="2079000" />
-      <workItem from="1651707438034" duration="6919000" />
+      <workItem from="1651707438034" duration="12700000" />
+      <workItem from="1651973129407" duration="3725000" />
     </task>
     <servers />
   </component>
@@ -99,10 +106,10 @@
     </state>
     <state x="207" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1650243508946" />
     <state x="328" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.814@0.25.1440.814" timestamp="1649199941206" />
-    <state x="450" y="257" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1650588259251">
+    <state x="450" y="257" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1651882122628">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="450" y="257" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1650588259251" />
+    <state x="450" y="257" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1651882122628" />
     <state x="100" y="100" width="1240" height="700" key="DirDiffDialog" timestamp="1650241555679">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

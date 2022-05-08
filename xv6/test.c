@@ -2,11 +2,34 @@
 // Created by Sidharth Ramkumar on 4/17/22.
 //
 #include "types.h"
-#include "stat.h"
 #include "user.h"
 
-int main(int argc, char *argv[]) {
-    //printf(1, "hello world\n");
-    hello(); //J.H
-    exit(1);
+void work() {
+    int i,k;
+    for(i = 0; i < 43000; i++) {
+        for(k = 0; k < 43000; k++) {
+            asm("nop");
+        }
+    }
+}
+
+int main() {
+    setprior(0);
+    int i = 0;
+    int pid = 0;
+    for(i = 0; i < 3; i++) {
+        pid = fork();
+        if(!pid) {
+            setprior(i * 10);
+            work();
+            printf(0, "child %d done\n", getpid());
+            exit(0);
+        }
+    }
+    if(pid) {
+        for(i = 0; i < 3; i++)
+            wait(0);
+    }
+    printf(0, "parent %d done\n", getpid());
+    exit(0);
 }

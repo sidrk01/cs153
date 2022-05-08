@@ -31,5 +31,5 @@ SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
 SYSCALL(hello) //S.R
-SYSCALL(priority) //S.R
+SYSCALL(setprior) //S.R
 

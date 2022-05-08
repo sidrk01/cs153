@@ -6,6 +6,7 @@
 #include "defs.h"
 #include "x86.h"
 #include "elf.h"
+#include "time.h"
 
 int
 exec(char *path, char **argv)
@@ -20,6 +21,7 @@ exec(char *path, char **argv)
   struct proc *curproc = myproc();
 
   begin_op();
+
 
   if((ip = namei(path)) == 0){
     end_op();

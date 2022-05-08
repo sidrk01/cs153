@@ -6,6 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include "time.h"
 
 struct {
   struct spinlock lock;
@@ -89,6 +90,7 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
   p->priorityValue = 31; //initialization
+  p->burst = 0; //initialization
 
   release(&ptable.lock);
 
@@ -216,6 +218,7 @@ fork(void)
   acquire(&ptable.lock);
 
   np->state = RUNNABLE;
+  np->start = ticks; //S.R.
 
   np->priorityValue = 31; //initialization
 
@@ -236,6 +239,10 @@ exit(int status)
 
   if(curproc == initproc)
     panic("init exiting");
+
+  int tt = (ticks - curproc->start);
+  cprintf("Turnaround time for process %d:  %d\n", curproc->pid, ticks - curproc->start);
+  cprintf("Waiting time for process %d: %d\n", curproc->pid, tt - curproc->burst);
 
   // Close all open files.
   for(fd = 0; fd < NOFILE; fd++){
@@ -266,6 +273,12 @@ exit(int status)
   }
   // Jump into the scheduler, never to return.
   curproc->status = status;
+  //curproc->finish = clock();
+ // double time_compute;
+
+//  time_compute = ((double) (curproc->finish - curproc->start));
+//  time_compute -= curproc->burst;
+//  cprintf("Waiting Time for process " + curproc->pid + " : " + time_compute);
   curproc->state = ZOMBIE;
   sched();
   panic("zombie exit");
@@ -371,9 +384,11 @@ int
 setprior(int prior_lvl){
     struct proc *curproc = myproc();
 
+    acquire(&ptable.lock);
     curproc->priorityValue = prior_lvl;
+    release(&ptable.lock);
 
-    yield(); //transfers control of the scheduler
+    //yield(); //transfers control of the scheduler
     return 0;
 }
 
@@ -420,20 +435,24 @@ scheduler(void)
         c->proc = p;
         switchuvm(p);
         p->state = RUNNING;
+        p->burst += 1;
 
         swtch(&(c->scheduler), p->context);
         switchkvm();
 
+
         // Process is done running for now.
         // It should have changed its p->state before coming back.
         c->proc = 0;
+        if (p->priorityValue < 31) //S.R
         p->priorityValue += 1;
-    } else {
+    } else { //S.R
         //aging of priority here
         if (p->priorityValue > 0){
             p->priorityValue -= 1;
         }
     }
+
     }
     release(&ptable.lock);
 
