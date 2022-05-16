@@ -1,26 +1,31 @@
-diff --git a/xv6/.idea/workspace.xml b/xv6/.idea/workspace.xml
-index 1b075e8..a81c7e6 100644
---- a/xv6/.idea/workspace.xml
-+++ b/xv6/.idea/workspace.xml
-@@ -10,12 +10,7 @@
-   </component>
-   <component name="ChangeListManager">
-     <list default="true" id="8fd3f3a7-69dd-4097-b755-8e41c6ad7361" name="Default Changelist" comment="">
--      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
--      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
--      <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
--      <change beforePath="$PROJECT_DIR$/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.h" afterDir="false" />
--      <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
-     </list>
-     <option name="SHOW_DIALOG" value="false" />
-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
-@@ -80,7 +75,7 @@
-       <workItem from="1650243061732" duration="642000" />
-       <workItem from="1650243722043" duration="7185000" />
-       <workItem from="1650581381156" duration="18171000" />
--      <workItem from="1650666428096" duration="4124000" />
-+      <workItem from="1650666428096" duration="4577000" />
-     </task>
-     <servers />
-   </component>
+diff --git a/xv6/file.txt b/xv6/file.txt
+index ac2fd77..e69de29 100644
+--- a/xv6/file.txt
++++ b/xv6/file.txt
+@@ -1,26 +0,0 @@
+-diff --git a/xv6/.idea/workspace.xml b/xv6/.idea/workspace.xml
+-index 1b075e8..a81c7e6 100644
+---- a/xv6/.idea/workspace.xml
+-+++ b/xv6/.idea/workspace.xml
+-@@ -10,12 +10,7 @@
+-   </component>
+-   <component name="ChangeListManager">
+-     <list default="true" id="8fd3f3a7-69dd-4097-b755-8e41c6ad7361" name="Default Changelist" comment="">
+--      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.h" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
+-     </list>
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-@@ -80,7 +75,7 @@
+-       <workItem from="1650243061732" duration="642000" />
+-       <workItem from="1650243722043" duration="7185000" />
+-       <workItem from="1650581381156" duration="18171000" />
+--      <workItem from="1650666428096" duration="4124000" />
+-+      <workItem from="1650666428096" duration="4577000" />
+-     </task>
+-     <servers />
+-   </component>

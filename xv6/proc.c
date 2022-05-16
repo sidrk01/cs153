@@ -90,7 +90,6 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
   p->priorityValue = 31; //initialization
-  p->burst = 0; //initialization
 
   release(&ptable.lock);
 
@@ -105,7 +104,7 @@ found:
   sp -= sizeof *p->tf;
   p->tf = (struct trapframe*)sp;
 
-  // Set up new context to start executing at forkret,
+  // Set up new context to start executing at forkret,test
   // which returns to trapret.
   sp -= 4;
   *(uint*)sp = (uint)trapret;
@@ -388,7 +387,8 @@ setprior(int prior_lvl){
     curproc->priorityValue = prior_lvl;
     release(&ptable.lock);
 
-    //yield(); //transfers control of the scheduler
+    yield(); //transfers control of the scheduler
+    //cprintf("Updated priority value of %d: %d\n", curproc->pid, curproc->priorityValue); //DEBUG: priority value checking
     return 0;
 }
 
@@ -407,7 +407,9 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  int highestpriority = 31; //start with lowest priority value
+  //int highestpriority = 31; //start with lowest priority value
+
+  struct proc *priorityproc;
 
   for(;;){
     // Enable interrupts on this processor.
@@ -415,27 +417,47 @@ scheduler(void)
 
     acquire(&ptable.lock);
 
-    //loops over process table and assigns the highest priority
+    /*
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
         if (p->priorityValue < highestpriority) {
             if (p->state == RUNNABLE)
                 highestpriority = p->priorityValue;
         }
     }
+    */
 
     //only chooses the runnable process which is ready to execute
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
 
-    if (p->priorityValue == highestpriority) { //process w/ highest priority
-        // Switch to chosen process.  It is the process's job
-        // to release ptable.lock and then reacquire it
-        // before jumping back to us.
+    priorityproc = p;
+    struct proc* temp;
+    for (temp = ptable.proc; temp < &ptable.proc[NPROC]; temp++){
+        if (temp->priorityValue >= priorityproc->priorityValue || temp->state != RUNNABLE)
+            continue; //cprintf("Calling proc %d of priority value: %d\n", temp->pid, temp->priorityValue); //DEBUG: priority value checking
+    priorityproc = temp;
+    priorityproc->burst++;
+    }
+//    if (p->priorityValue == highestpriority) { //process w/ highest priority
+
+
+    for (temp = ptable.proc; temp < &ptable.proc[NPROC]; temp++){
+        if (priorityproc->priorityValue == temp->priorityValue|| (temp->state != RUNNABLE && temp->state != SLEEPING))
+           continue; //iterates through remaining processes
+
+     //decrement priorityValue of all other running processes
+     if (temp->state == RUNNABLE){
+         if (temp->priorityValue > 0)
+             temp->priorityValue--; //must be within 0-31 range
+     }
+    }
+  // Switch to chosen process.  It is the process's job
+  // to release ptable.lock and then reacquire it
+  // before jumping back to us.
         c->proc = p;
         switchuvm(p);
         p->state = RUNNING;
-        p->burst += 1;
 
         swtch(&(c->scheduler), p->context);
         switchkvm();
@@ -443,15 +465,16 @@ scheduler(void)
 
         // Process is done running for now.
         // It should have changed its p->state before coming back.
-        c->proc = 0;
-        if (p->priorityValue < 31) //S.R
-        p->priorityValue += 1;
-    } else { //S.R
-        //aging of priority here
-        if (p->priorityValue > 0){
-            p->priorityValue -= 1;
+        if (p->priorityValue < 31){ //S.R
+        p->priorityValue++;
         }
-    }
+        c->proc = 0;
+//    } else { //S.R
+//        //aging of priority here
+//        if (p->priorityValue > 0){tet
+//            p->priorityValue -= 1;
+//     //   }
+  //  }
 
     }
     release(&ptable.lock);
